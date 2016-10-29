@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css">
+    <link href="css/styles.css">
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>pizzaShop</title>
+  </head>
+  <body>
+    <div id="welcomeScreen">
+      <div class ="container">
+        <h1>Welcome To Sean's Pizza Shop</h1>
+        <br>
+        <h3>Our mission to allow you to create your own custome pizza right at your keyboard </h3>
+        <br>
+        <button type="submit">Continue</button>
+      </div>
+    </div>
+    <div id="size">
+      <div class="container">
+        <h1> Please select the size of the pizza you wish us to create for you.</h1>
+        <div class="col-md-4">
+          <h4>Small</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>Medium</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>Large</h4>
+        </div>
+      </div>
+    </div>
+    <div id="customize"
+      <form id="formCustomize">
+        <div class="form-group">
+          <h3>Dough</h3>
+          <input type="radio" name="dough" value="white">White.<br>
+          <input type="radio" name="dough" value="wholeGrain">Whole Grain.<br>
+          <input type="radio" name="dough" value="artisan">french artisan.<br>
+        </div>
+        <div class="form-group">
+          <h3>Meat</h3>
+          <input type="checkbox" name="meat" value="peperoni">Peperoni<br>
+          <input type="checkbox" name="meat" value="bacon">Bacon<br>
+          <input type="checkbox" name="meat" value="steak">tenderloin tips<br>
+          <input type="checkbox" name="meat" value="pork">pulled pork<br>
+          <input type="checkbox" name="meat" value="chicken">chicken breast<br>
+        </div>
+        <div class="form-group">
+          <h3>Vegitables</h3>
+          <input type="checkbox" name="vegitable" value="olive">black olives.<br>
+          <input type="checkbox" name="vegitable" value="pepper">chopped red peppers.<br>
+          <input type="checkbox" name="vegitable" value="onion">Onions.<br>
+          <input type="checkbox" name="vegitable" value="bracolli">Bracolli.<br>
+          <input type="checkbox" name="vegitable" value="kale">Kale.<br>
+        </div>
+        <div class="form-group">
+          <h3>Sauce</h3>
+          <input type="radio" name="sauce" value="maranara">Maranara.<br>
+          <input type="radio" name="sauce" value="pesto">Pesto.<br>
+          <input type="radio" name="sauce" value="alfredo">Alfredo.<br>
+          <input type="radio" name="sauce" value="oliveOil">Olive oil.<br>
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+    </div>
+    <div id="review">
+      <div id="cost"></div>
+      <div id="selection"></div>
+      <button type="submit">place order</button>
+    </div>
+  </body>
+</html>
