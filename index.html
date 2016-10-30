@@ -20,14 +20,13 @@
     <div id="size">
       <div class="container">
         <h1> Please select the size of the pizza you wish us to create for you.</h1>
-        <div class="col-md-4">
-          <h4>Small</h4>
-        </div>
-        <div class="col-md-4">
-          <h4>Medium</h4>
-        </div>
-        <div class="col-md-4">
-          <h4>Large</h4>
+        <form id="formSize">
+          <div class="form-group">
+            <input type="radio" name="size" value="small">Small.<br>
+            <input type="radio" name="size" value="medium">Medium.<br>
+            <input type="radio" name="size" value="large">Large.<br>
+          </div>
+          <button type="submit">Submit</button>
         </div>
       </div>
     </div>
