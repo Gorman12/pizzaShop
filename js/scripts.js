@@ -3,31 +3,68 @@ function Pizza(size, dough, topping, sauce, cost) {
   this.dough = dough;
   this.topping = topping;
   this.sauce = sauce;
+  this.cost = cost;
 }
 
-
 Pizza.prototype.functionSize = function(input) {
-  var size = input;
-   this.size = size;
+  var Size = input;
+   this.size = Size;
 }
 
 Pizza.prototype.functionDough = function(input) {
-  var dough = input;
-  this.dough = dough;
+  var Dough = input;
+  this.dough = Dough;
 }
 
-Pizza.prototype.functiontopping = function(input) {
-  var topping = input;
-  this.topping += topping;
+Pizza.prototype.functionTopping = function(input) {
+  var Topping = input;
+  this.topping = Topping;
 }
 
 Pizza.prototype.functionSauce = function(input) {
-  var sauce = input;
-  this.sauce = sauce;
+  var Sauce = input;
+  this.sauce = Sauce;
 }
 
-var pizza = new Pizza(0,0,[],0,0);
+Pizza.prototype.functionSizeCost = function() {
+  var Size = this.size;
+  if (Size === "small") {
+    this.cost = 6;
+  } else if (Size === "medium") {
+    this.cost = 8;
+  } else if (Size === "large") {
+    this.cost = 10;
+  }
+}
 
+Pizza.prototype.functionDoughCost = function() {
+  var doughCost = this.dough;
+  if (doughCost === "artisan") {
+    this.cost += 1;
+  }
+}
+
+Pizza.prototype.functionToppingCost = function() {
+  var i;
+  var array = this.topping;
+  for (i = 0; i < array.length; i++) {
+    var j = array[i];
+    if (j === "steak") {
+      this.cost += 5;
+    } else if ((j === "pork") || (j === "chicken") || (j === "bacon") || (j === "peperoni")) {
+      this.cost += 3;
+    } else if ((j === "olive") || (j === "pepper") || (j === "onion") || (j === "broccoli") || (j === "kale")) {
+      this.cost += 1;
+    }
+  }
+}
+
+
+var pizza = new Pizza("","",[],"",0);
+var toppingArray = [];
+
+
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 $(document).ready(function() {
@@ -39,13 +76,15 @@ $(document).ready(function() {
   $("form#formCustomize").submit(function(event) {
     event.preventDefault();
     var dough = $("input:radio[name=dough]:checked").val();
-    var toppingArray = [];
     $("input:checkbox[name=topping]:checked").each(function() {
       toppingArray.push($(this).val());
     });
     var sauce = $("input:radio[name=sauce]:checked").val();
     $(pizza.functionDough(dough));
-    $(pizza.functiontopping(toppingArray));;
+    $(pizza.functionTopping(toppingArray));
     $(pizza.functionSauce(sauce));
+    $(pizza.functionSizeCost());
+    $(pizza.functionDoughCost());
+    $(pizza.functionToppingCost());
   });
 });
