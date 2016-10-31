@@ -59,6 +59,14 @@ Pizza.prototype.functionToppingCost = function() {
   }
 }
 
+// Pizza.prototype.functionDisplayTopping = function() {
+//   var i;
+//   var array = this.topping;
+//   for (i = 0; i < array.length; i++) {
+//     var j = array[i];
+//     return j + ", ";
+// }
+
 
 var pizza = new Pizza("","",[],"",0);
 var toppingArray = [];
@@ -68,10 +76,18 @@ var toppingArray = [];
 
 
 $(document).ready(function() {
+  $("#welcomeScreen").show();
+  $("#button1").click(function(event) {
+    event.preventDefault();
+    $("#welcomeScreen").hide();
+    $("#sizeScreen").show();
+  })
   $("form#formSize").submit(function(event) {
     event.preventDefault();
     var input = $("input:radio[name=size]:checked").val();
     $(pizza.functionSize(input));
+    $("#sizeScreen").hide();
+    $("#customizeScreen").show();
   });
   $("form#formCustomize").submit(function(event) {
     event.preventDefault();
@@ -86,5 +102,17 @@ $(document).ready(function() {
     $(pizza.functionSizeCost());
     $(pizza.functionDoughCost());
     $(pizza.functionToppingCost());
+    $("#customizeScreen").hide();
+    $("#review").show();
+    $("#reviewSize").append(pizza.size);
+    $("#reviewDough").append(pizza.dough);
+    $("#reviewToppings").append(pizza.topping.join(", "));
+    $("#reviewSauce").append(pizza.sauce);
+    $("#reviewCost").append(pizza.cost);
   });
+
+  $("#button2").click(function() {
+    $("#review").hide();
+    $("#thankYou").show();
+  })
 });

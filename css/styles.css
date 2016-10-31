@@ -1,0 +1,46 @@
+#welcomeScreen {
+  display: none;
+  text-align: center;
+  padding-top: 20%;
+  background-color: #3399ff;
+}
+
+#sizeScreen {
+  display: none;
+  text-align: center;
+  background-color: #cc66ff;
+  padding-top: 20%;
+}
+
+#customizeScreen {
+  display: none;
+  text-align: center;
+  background-color: #ff99cc;
+  padding-top: 20%;
+}
+
+#review {
+  display: none;
+  text-align: center;
+  background-color: #ffcc99;
+  padding-top: 20%;
+}
+
+#thankYou {
+  display: none;
+  text-align: center;
+  background-color: #cc99ff;
+  padding-top: 20%;
+}
+
+.set_background {
+  position:absolute;
+    top:0; right:0;
+    bottom:0; left:0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.italic {
+  font-style: italic;
+}

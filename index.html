@@ -1,71 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/bootstrap.css">
-    <link href="css/styles.css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/scripts.js"></script>
     <title>pizzaShop</title>
   </head>
   <body>
-    <div id="welcomeScreen">
+    <div id="welcomeScreen" class="set_background">
       <div class ="container">
         <h1>Welcome To Sean's Pizza Shop</h1>
         <br>
-        <h3>Our mission to allow you to create your own custome pizza right at your keyboard </h3>
+        <h3>Our mission is to allow you to create your own custome pizza right at your keyboard </h3>
         <br>
-        <button type="submit">Continue</button>
+        <button id="button1" type="submit">Continue</button>
       </div>
     </div>
-    <div id="size">
+    <div id="sizeScreen" class="set_background">
       <div class="container">
         <h1> Please select the size of the pizza you wish us to create for you.</h1>
         <form id="formSize">
           <div class="form-group">
-            <input type="radio" name="size" value="small">Small<br>
-            <input type="radio" name="size" value="medium">Medium<br>
-            <input type="radio" name="size" value="large">Large<br>
+            <input type="radio" name="size" value="small">Small ($6)<br>
+            <input type="radio" name="size" value="medium">Medium ($8)<br>
+            <input type="radio" name="size" value="large">Large ($10)<br>
           </div>
           <button type="submit">Submit</button>
         </form>
       </div>
     </div>
-    <div id="customize">
-      <form id="formCustomize">
-        <div class="form-group">
-          <h3>Dough</h3>
-          <input type="radio" name="dough" value="white">White<br>
-          <input type="radio" name="dough" value="wholeGrain">Whole Grain<br>
-          <input type="radio" name="dough" value="artisan">french artisan<br>
-        </div>
-        <div class="form-group">
-          <h3>Meat</h3>
-          <input type="checkbox" name="topping" value="peperoni">Peperoni<br>
-          <input type="checkbox" name="topping" value="bacon">Bacon<br>
-          <input type="checkbox" name="topping" value="steak">tenderloin tips<br>
-          <input type="checkbox" name="topping" value="pork">pulled pork<br>
-          <input type="checkbox" name="topping" value="chicken">chicken breast<br>
-          <h3>Vegitables</h3>
-          <input type="checkbox" name="topping" value="olive">black olives<br>
-          <input type="checkbox" name="topping" value="pepper">chopped red peppers<br>
-          <input type="checkbox" name="topping" value="onion">Onions<br>
-          <input type="checkbox" name="topping" value="broccoli">Broccoli<br>
-          <input type="checkbox" name="topping" value="kale">Kale<br>
-        </div>
-        <div class="form-group">
-          <h3>Sauce</h3>
-          <input type="radio" name="sauce" value="maranara">Maranara<br>
-          <input type="radio" name="sauce" value="pesto">Pesto<br>
-          <input type="radio" name="sauce" value="alfredo">Alfredo<br>
-          <input type="radio" name="sauce" value="oliveOil">Olive oil<br>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+    <div id="customizeScreen" class="set_background">
+      <div class="container">
+        <form id="formCustomize">
+          <h1> Now customize it!</h1>
+          <br>
+          <br>
+          <div class="form-group col-md-3">
+            <h3>Dough</h3>
+            <input type="radio" name="dough" value="white">White<br>
+            <input type="radio" name="dough" value="wholeGrain">Whole Grain<br>
+            <input type="radio" name="dough" value="artisan">french artisan (+$1)<br>
+          </div>
+          <div class="form-group col-md-3">
+            <h3>Meat</h3>
+            <input type="checkbox" name="topping" value="peperoni">Peperoni (+$3)<br>
+            <input type="checkbox" name="topping" value="bacon">Bacon (+$3)<br>
+            <input type="checkbox" name="topping" value="steak">tenderloin tips (+$5)<br>
+            <input type="checkbox" name="topping" value="pork">pulled pork (+$3)<br>
+            <input type="checkbox" name="topping" value="chicken">chicken breast (+$3)<br>
+          </div>
+          <div class="form-group col-md-3">
+            <h3>Vegitables</h3>
+            <input type="checkbox" name="topping" value="olive">black olives (+$1)<br>
+            <input type="checkbox" name="topping" value="pepper">chopped red peppers (+$1)<br>
+            <input type="checkbox" name="topping" value="onion">Onions (+$1)<br>
+            <input type="checkbox" name="topping" value="broccoli">Broccoli (+$1)<br>
+            <input type="checkbox" name="topping" value="kale">Kale (+$1)<br>
+          </div>
+          <div class="form-group col-md-3" >
+            <h3>Sauce</h3>
+            <input type="radio" name="sauce" value="maranara">Maranara<br>
+            <input type="radio" name="sauce" value="pesto">Pesto<br>
+            <input type="radio" name="sauce" value="alfredo">Alfredo<br>
+            <input type="radio" name="sauce" value="oliveOil">Olive oil<br>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
-    <div id="review">
-      <div id="cost"></div>
-      <div id="selection"></div>
-      <button type="submit">place order</button>
+    <div id="review" class="set_background">
+      <h1>Order Review</h1>
+      <br>
+      <p>Size: <span class="italic" id="reviewSize"></span></p>
+      <br>
+      <p>Dough: <span class="italic" id="reviewDough"></span></p>
+      <br>
+      <p>Toppings: <span class="italic" id="reviewToppings"></span></p>
+      <br>
+      <p>Sauce: <span class="italic" id="reviewSauce"></span></p>
+      <br>
+      <p>Total: $<span class="italic" id="reviewCost"></span></p>
+      <br>
+      <button id="button2" type="submit">place order</button>
+    </div>
+    <div id="thankYou" class="set_background">
+      <h1>Thank you</h1>
+      <br>
+      <h3>Your order Will be shipped to your current location shortly by drone</h3>
     </div>
   </body>
 </html>
