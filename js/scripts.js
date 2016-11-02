@@ -6,45 +6,26 @@ function Pizza(size, dough, topping, sauce, cost) {
   this.cost = cost;
 }
 
-Pizza.prototype.functionSize = function(input) {
-  var Size = input;
-   this.size = Size;
-}
 
-Pizza.prototype.functionDough = function(input) {
-  var Dough = input;
-  this.dough = Dough;
-}
-
-Pizza.prototype.functionTopping = function(input) {
-  var Topping = input;
-  this.topping = Topping;
-}
-
-Pizza.prototype.functionSauce = function(input) {
-  var Sauce = input;
-  this.sauce = Sauce;
-}
-
-Pizza.prototype.functionSizeCost = function() {
-  var Size = this.size;
-  if (Size === "small") {
+Pizza.prototype.sizeCost = function() {
+  var size = this.size;
+  if (size === "small") {
     this.cost = 6;
-  } else if (Size === "medium") {
+  } else if (size === "medium") {
     this.cost = 8;
-  } else if (Size === "large") {
+  } else if (size === "large") {
     this.cost = 10;
   }
 }
 
-Pizza.prototype.functionDoughCost = function() {
+Pizza.prototype.doughCost = function() {
   var doughCost = this.dough;
   if (doughCost === "artisan") {
     this.cost += 1;
   }
 }
 
-Pizza.prototype.functionToppingCost = function() {
+Pizza.prototype.toppingCost = function() {
   var i;
   var array = this.topping;
   for (i = 0; i < array.length; i++) {
@@ -59,49 +40,42 @@ Pizza.prototype.functionToppingCost = function() {
   }
 }
 
-// Pizza.prototype.functionDisplayTopping = function() {
-//   var i;
-//   var array = this.topping;
-//   for (i = 0; i < array.length; i++) {
-//     var j = array[i];
-//     return j + ", ";
-// }
-
-
-var pizza = new Pizza("","",[],"",0);
-var toppingArray = [];
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 
 
 $(document).ready(function() {
+
   $("#welcomeScreen").show();
   $("#button1").click(function(event) {
     event.preventDefault();
     $("#welcomeScreen").hide();
     $("#sizeScreen").show();
   })
+
+  var pizza = new Pizza("","",[],"",0);
+  var toppingArray = [];
+
   $("form#formSize").submit(function(event) {
     event.preventDefault();
     var input = $("input:radio[name=size]:checked").val();
-    $(pizza.functionSize(input));
+    (pizza.size = input);
     $("#sizeScreen").hide();
     $("#customizeScreen").show();
   });
   $("form#formCustomize").submit(function(event) {
     event.preventDefault();
     var dough = $("input:radio[name=dough]:checked").val();
+    (pizza.dough = dough);
     $("input:checkbox[name=topping]:checked").each(function() {
       toppingArray.push($(this).val());
     });
+    (pizza.topping = toppingArray);
     var sauce = $("input:radio[name=sauce]:checked").val();
-    $(pizza.functionDough(dough));
-    $(pizza.functionTopping(toppingArray));
-    $(pizza.functionSauce(sauce));
-    $(pizza.functionSizeCost());
-    $(pizza.functionDoughCost());
-    $(pizza.functionToppingCost());
+    (pizza.sauce = sauce);
+    (pizza.sizeizeCost());
+    (pizza.doughCost());
+    (pizza.toppingCost());
     $("#customizeScreen").hide();
     $("#review").show();
     $("#reviewSize").append(pizza.size);
@@ -110,9 +84,8 @@ $(document).ready(function() {
     $("#reviewSauce").append(pizza.sauce);
     $("#reviewCost").append(pizza.cost);
   });
-
   $("#button2").click(function() {
     $("#review").hide();
     $("#thankYou").show();
-  })
+  });
 });
