@@ -8,19 +8,17 @@ function Pizza(size, dough, topping, sauce, cost) {
 
 
 Pizza.prototype.sizeCost = function() {
-  var size = this.size;
-  if (size === "small") {
+  if (this.size === "small") {
     this.cost = 6;
-  } else if (size === "medium") {
+  } else if (this.size === "medium") {
     this.cost = 8;
-  } else if (size === "large") {
+  } else if (this.size === "large") {
     this.cost = 10;
   }
 }
 
 Pizza.prototype.doughCost = function() {
-  var doughCost = this.dough;
-  if (doughCost === "artisan") {
+  if (this.dough === "artisan") {
     this.cost += 1;
   }
 }
@@ -32,7 +30,7 @@ Pizza.prototype.toppingCost = function() {
     var j = array[i];
     if (j === "steak") {
       this.cost += 5;
-    } else if ((j === "pork") || (j === "chicken") || (j === "bacon") || (j === "peperoni")) {
+    } else if ((j === "pork") || (j === "chicken") || (j === "bacon") || (j === "pepperoni")) {
       this.cost += 3;
     } else if ((j === "olive") || (j === "pepper") || (j === "onion") || (j === "broccoli") || (j === "kale")) {
       this.cost += 1;
@@ -45,13 +43,12 @@ Pizza.prototype.toppingCost = function() {
 
 
 $(document).ready(function() {
-
   $("#welcomeScreen").show();
   $("#button1").click(function(event) {
     event.preventDefault();
     $("#welcomeScreen").hide();
     $("#sizeScreen").show();
-  })
+  });
 
   var pizza = new Pizza("","",[],"",0);
   var toppingArray = [];
@@ -65,15 +62,12 @@ $(document).ready(function() {
   });
   $("form#formCustomize").submit(function(event) {
     event.preventDefault();
-    var dough = $("input:radio[name=dough]:checked").val();
-    (pizza.dough = dough);
+    pizza.dough = $("input:radio[name=dough]:checked").val();
     $("input:checkbox[name=topping]:checked").each(function() {
-      toppingArray.push($(this).val());
+      pizza.topping.push($(this).val());
     });
-    (pizza.topping = toppingArray);
-    var sauce = $("input:radio[name=sauce]:checked").val();
-    (pizza.sauce = sauce);
-    (pizza.sizeizeCost());
+    pizza.sauce = $("input:radio[name=sauce]:checked").val();
+    (pizza.sizeCost());
     (pizza.doughCost());
     (pizza.toppingCost());
     $("#customizeScreen").hide();

@@ -10,7 +10,21 @@ https://Gorman12.github.io/pizzaShop
 
 #### Specifications:
 
-* The user is guided thru the webpage, allowing them to create their own custom pie. All input is successfully handled thru javaScript and their order is displayed back to them with a thank you confirmation.  
+* Program returns base price.
+  * Example input: small.
+  * Example output: size: small. cost: $6.
+
+* Program returns price and dough selection
+  * Example input: small, wholegrain.
+  * Example output: size: small. dough: wholegrain. cost: $6.
+
+* Program returns price, dough selection and toppings selected.
+  * Example input: small, artisan, pepperoni, kale, bacon.
+  * Example output: size: small. dough: artisan, toppings: pepperoni, kale, bacon. cost: $14.
+
+* Program returns price, dough selection, toppings selected and sauce selection.
+  * Example input: large, white, bacon, olive, pesto.
+  * Example output: size: large. dough: white. toppings: bacon, olive. sauce: pesto. cost: $14.
 
 #### technologies used:
 
